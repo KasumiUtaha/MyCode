@@ -1,0 +1,10 @@
+^C:\USERS\12111\DESKTOP\VSC\BUILD\CMAKEFILES\A901E3596857BAF217AF0A904E5CB6F7\GENERATE.STAMP.RULE
+setlocal
+E:\CMake\bin\cmake.exe -SC:/Users/12111/Desktop/VSC -BC:/Users/12111/Desktop/VSC/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/12111/Desktop/VSC/build/test.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
