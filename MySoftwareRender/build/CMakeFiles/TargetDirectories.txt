@@ -1,0 +1,3 @@
+C:/Users/12111/Desktop/VSC/build/CMakeFiles/test.dir
+C:/Users/12111/Desktop/VSC/build/CMakeFiles/edit_cache.dir
+C:/Users/12111/Desktop/VSC/build/CMakeFiles/rebuild_cache.dir
