@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/12111/Desktop/Vector
+# Install script for directory: E:/Code/MyCode/Vector
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/12111/Desktop/Vector/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/Code/MyCode/Vector/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

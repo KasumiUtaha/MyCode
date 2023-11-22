@@ -1,10 +1,11 @@
 #include <algorithm>
-#include <cstring>
+#include <string>
 #include <malloc.h>
 #include <iostream>
 #include <time.h>
 #include <vector>
 using std::cout;
+using std::string;
 
 template <class T>
 class Vector
@@ -27,7 +28,7 @@ public:
     Vector(int _size)
     {
         size = _size;
-        length=0;
+        length = 0;
         head = (T *)malloc(sizeof(T) * size);
         _end = head;
     }
@@ -39,7 +40,7 @@ public:
         if (head != nullptr)
             free(head);
         head = (T *)malloc(sizeof(T) * vec.size);
-        _end=head;
+        _end = head;
         for (int i = 0; i < vec.size; i++)
         {
             head[i] = vec.head[i];
@@ -49,7 +50,7 @@ public:
         size = vec.size;
     }
 
-    Vector(Vector &&vec)
+    Vector(Vector<T> &&vec)
     {
         if (head == vec.head)
             return;
@@ -77,10 +78,10 @@ public:
 
     Vector(std::initializer_list<T> l)
     {
-        length=size=0;
-        head=nullptr;
-        _end=head;
-        for(auto it=l.begin();it!=l.end();it++)
+        length = size = 0;
+        head = nullptr;
+        _end = head;
+        for (auto it = l.begin(); it != l.end(); it++)
         {
             push_back(*it);
         }
@@ -98,7 +99,7 @@ public:
         return head[x];
     }
 
-    Vector &operator=(Vector &&vec)
+    Vector<T> &operator=(Vector<T> &&vec)
     {
         if (vec.head == head)
             return *this;
@@ -118,19 +119,16 @@ public:
         {
             size = (size == 0) ? 1 : size_t(size * 2);
             T *new_head = (T *)malloc(sizeof(T) * size);
-            
+
             memcpy(new_head, head, length * sizeof(T));
-            // if(head!=nullptr)
-            // {
-            //    free(head); 
-            // }
+            free(head);
             head = new_head;
             _end = head;
             for (int i = 0; i < length; i++)
             {
                 _end++;
             }
-           
+
             new_head = nullptr;
         }
         head[length++] = x;
@@ -204,7 +202,7 @@ public:
         }
         else if (n > length)
         {
-            int lim=n-length;
+            int lim = n - length;
             for (int i = 1; i <= lim; i++)
             {
                 push_back(obj);
@@ -212,42 +210,42 @@ public:
         }
     }
 
-    T* begin()
+    T *begin()
     {
         return head;
     }
 
-    T* end()
+    T *end()
     {
         return _end;
     }
 
-    T* rbegin()
+    T *rbegin()
     {
-        T* tmp=_end;
+        T *tmp = _end;
         tmp--;
         return tmp;
     }
 
-    T& front()
+    T &front()
     {
         return *head;
     }
 
-    T& back()
+    T &back()
     {
         return *rbegin();
     }
 
-    T* find(T* __begin,T* __end,T value)
+    T *find(T *__begin, T *__end, T value)
     {
-        if(__begin<head||__begin>=_end||__end<head||__end>=_end)
+        if (__begin < head || __begin >= _end || __end < head || __end >= _end)
         {
             return _end;
         }
-        for(iterator it=__begin;it<=__end;it++)
+        for (iterator it = __begin; it <= __end; it++)
         {
-            if(*it==value)
+            if (*it == value)
             {
                 return it;
             }
@@ -255,33 +253,30 @@ public:
         return _end;
     }
 
-    T* erase(int position)
+    T *erase(int position)
     {
-        for(int i=position;i<length-1;i++)
+        for (int i = position; i < length - 1; i++)
         {
-            std::swap(head[i],head[i+1]);
+            std::swap(head[i], head[i + 1]);
         }
         _end--;
-        return head+position;
+        return head + position;
     }
 
     void clear()
     {
         free(head);
-        head=(T*) malloc(sizeof(T)*size);
-        _end=head;
-        length=0;
+        head = (T *)malloc(sizeof(T) * size);
+        _end = head;
+        length = 0;
     }
-
 };
-
 
 int main()
 {
     clock_t now = clock();
-    Vector<int> vec={1,2,3};
-    cout<<vec[1]<<'\n';
-    for(Vector<int>::iterator it=vec.begin();it!=vec.end();it++)
-    cout<<*it<<'\n';
+    Vector<string> vec ;
+    // for (auto it = vec.begin(); it != vec.end(); it++)
+    //     cout << *it << '\n';
     return 0;
 }
