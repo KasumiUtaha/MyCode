@@ -274,9 +274,9 @@ public:
 
 int main()
 {
-    clock_t now = clock();
-    Vector<string> vec ;
-    // for (auto it = vec.begin(); it != vec.end(); it++)
-    //     cout << *it << '\n';
+    std::thread t([](){
+        std::cout << "hello world." << std::endl;
+    });
+    t.join();
     return 0;
 }

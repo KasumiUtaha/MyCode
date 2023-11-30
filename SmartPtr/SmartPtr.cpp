@@ -227,7 +227,6 @@ int main()
     // auto p2 = make_share_ptr<B>();
     // p1->p = p2;
     // p2->p = p1;
-    auto p =make_share_ptr<std::string>("123");
-    auto p1 =static_cast<my_weak_ptr<std::string> > (p);
+
     return 0;
 }

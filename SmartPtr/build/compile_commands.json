@@ -1,0 +1,8 @@
+[
+{
+  "directory": "E:/Code/MyCode/SmartPtr/build",
+  "command": "C:\\mingw64\\bin\\g++.exe   -g -std=gnu++14 -o CMakeFiles\\test.dir\\SmartPtr.cpp.obj -c E:\\Code\\MyCode\\SmartPtr\\SmartPtr.cpp",
+  "file": "E:/Code/MyCode/SmartPtr/SmartPtr.cpp",
+  "output": "CMakeFiles/test.dir/SmartPtr.cpp.obj"
+}
+]
